@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Threading;
+using System.Media;
 
 namespace ExpressedEngine.ExpressedEngine
 {
@@ -163,6 +164,9 @@ namespace ExpressedEngine.ExpressedEngine
         protected static List<NuggieShape> NuggieShapes = new List<NuggieShape>();
         private static List<Sprite2D> AllSprites = new List<Sprite2D>(); 
         private static List<Collision> Collisions = new List<Collision>();
+        protected static List<System.Drawing.Rectangle> rect = new List<System.Drawing.Rectangle>();
+
+        public System.Drawing.Rectangle player;
 
         public Color BackgroundColour = Color.Beige;
 
@@ -170,6 +174,7 @@ namespace ExpressedEngine.ExpressedEngine
         public float CameraAngle = 0f;
         public ExpressedEngine(Vector2 ScreenSize, String Title)
         {
+            player = new System.Drawing.Rectangle(570, 450, 20, 20);
             Log.Info("Game Is Starting");
             this.ScreenSize = ScreenSize;
             this.Title = Title;
@@ -198,7 +203,13 @@ namespace ExpressedEngine.ExpressedEngine
 
         public static void RegisterShape(Shape2D shape)
         {
+
             AllShapes.Add(shape);
+        }
+
+        public static void RegisterShape(System.Drawing.Rectangle shape)
+        {
+            rect.Add(shape);
         }
         public static void RegisterShape(NuggieShape shape)
         {
@@ -230,10 +241,6 @@ namespace ExpressedEngine.ExpressedEngine
             Collisions.Remove(collision);
         }
 
-        public static void collisiondetect()
-        {
-
-        }
         void GameLoop()
         {
 
@@ -245,6 +252,7 @@ namespace ExpressedEngine.ExpressedEngine
                     Window.BeginInvoke((MethodInvoker)delegate { Window.Refresh(); });
   
                     OnUpdate();
+                    Collision();
                     Thread.Sleep(10);
                 }
                 catch 
@@ -279,12 +287,18 @@ namespace ExpressedEngine.ExpressedEngine
             {
                 g.FillRectangle(new SolidBrush(Color.Red), collision.postition.X, collision.postition.Y, collision.Scale.X, collision.Scale.Y);
             }
+            foreach (System.Drawing.Rectangle i in rect)
+            {
+                g.FillRectangle(new SolidBrush(Color.Blue), i);
+            }
+            g.FillRectangle(new SolidBrush(Color.Red), this.player);
 
         }
 
         public abstract void Onload();
         public abstract void OnUpdate();
         public abstract void OnDraw();
+        public abstract void Collision();
         public abstract void GetKeyDown(KeyEventArgs e);
         public abstract void GetKeyUp(KeyEventArgs e);
     }

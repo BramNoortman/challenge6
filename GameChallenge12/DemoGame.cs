@@ -11,8 +11,7 @@ namespace ExpressedEngine
 {
     class DemoGame : ExpressedEngine.ExpressedEngine
     {
-        Shape2D Player1;
-        NuggieShape Nuggie1;
+        NuggieShape Wall;
         Collision collision1;
 
         bool left;
@@ -27,57 +26,53 @@ namespace ExpressedEngine
         {
             BackgroundColour = Color.White;
 
-            Nuggie1 = new NuggieShape(new Vector2(40, 40), new Vector2(40, 240), "lol");
-            Nuggie1 = new NuggieShape(new Vector2(120, 40), new Vector2(160, 40), "lol");
-            Nuggie1 = new NuggieShape(new Vector2(240, 0), new Vector2(40, 40), "lol");
-            Nuggie1 = new NuggieShape(new Vector2(80, 120), new Vector2(240, 40), "lol");
-            Nuggie1 = new NuggieShape(new Vector2(80, 200), new Vector2(280, 40), "lol");
-            Nuggie1 = new NuggieShape(new Vector2(160, 40), new Vector2(160, 40), "lol");
-            Nuggie1 = new NuggieShape(new Vector2(360, 40), new Vector2(40, 280), "lol");
-            Nuggie1 = new NuggieShape(new Vector2(400, 120), new Vector2(80, 40), "lol");
-            Nuggie1 = new NuggieShape(new Vector2(440, 200), new Vector2(80, 40), "lol");
-            Nuggie1 = new NuggieShape(new Vector2(440, 0), new Vector2(40, 120), "lol");
-            Nuggie1 = new NuggieShape(new Vector2(520, 40), new Vector2(40, 440), "lol");
-            Nuggie1 = new NuggieShape(new Vector2(120, 280), new Vector2(200, 40), "lol");
-            Nuggie1 = new NuggieShape(new Vector2(120, 320), new Vector2(40, 160), "lol");
-            Nuggie1 = new NuggieShape(new Vector2(40, 320), new Vector2(40, 120), "lol");
-            Nuggie1 = new NuggieShape(new Vector2(440, 200), new Vector2(120, 40), "lol");
-            Nuggie1 = new NuggieShape(new Vector2(200, 400), new Vector2(360, 40), "lol");
-            Nuggie1 = new NuggieShape(new Vector2(440, 280), new Vector2(40, 120), "lol");
-            Nuggie1 = new NuggieShape(new Vector2(360, 360), new Vector2(40, 40), "lol");
-            Nuggie1 = new NuggieShape(new Vector2(280, 320), new Vector2(40, 40), "lol");
-            Nuggie1 = new NuggieShape(new Vector2(200, 360), new Vector2(40, 40), "lol");
+            Wall = new NuggieShape(new Vector2(40, 40), new Vector2(40, 240), "wall1");
+            Wall = new NuggieShape(new Vector2(120, 40), new Vector2(160, 40), "Wall2");
+            Wall = new NuggieShape(new Vector2(240, 0), new Vector2(40, 40), "Wall3");
+            Wall = new NuggieShape(new Vector2(80, 120), new Vector2(240, 40), "Wall4");
+            Wall = new NuggieShape(new Vector2(80, 200), new Vector2(280, 40), "Wall5");
+            Wall = new NuggieShape(new Vector2(160, 40), new Vector2(160, 40), "Wall6");
+            Wall = new NuggieShape(new Vector2(360, 40), new Vector2(40, 280), "Wall7");
+            Wall = new NuggieShape(new Vector2(400, 120), new Vector2(80, 40), "Wall8");
+            Wall = new NuggieShape(new Vector2(440, 200), new Vector2(80, 40), "Wall9");
+            Wall = new NuggieShape(new Vector2(440, 0), new Vector2(40, 120), "Wall10");
+            Wall = new NuggieShape(new Vector2(520, 40), new Vector2(40, 440), "Wall11");
+            Wall = new NuggieShape(new Vector2(120, 280), new Vector2(200, 40), "Wall12");
+            Wall = new NuggieShape(new Vector2(120, 320), new Vector2(40, 160), "Wall13");
+            Wall = new NuggieShape(new Vector2(40, 320), new Vector2(40, 120), "Wall14");
+            Wall = new NuggieShape(new Vector2(440, 200), new Vector2(120, 40), "Wall15");
+            Wall = new NuggieShape(new Vector2(200, 400), new Vector2(360, 40), "Wall16");
+            Wall = new NuggieShape(new Vector2(440, 280), new Vector2(40, 120), "Wall17");
+            Wall = new NuggieShape(new Vector2(360, 360), new Vector2(40, 40), "Wall18");
+            Wall = new NuggieShape(new Vector2(280, 320), new Vector2(40, 40), "Wall19");
+            Wall = new NuggieShape(new Vector2(200, 360), new Vector2(40, 40), "Wall20");
 
-            Nuggie1 = new NuggieShape(new Vector2(490, 450), new Vector2(20, 20), "door");
+            Wall = new NuggieShape(new Vector2(490, 450), new Vector2(20, 20), "door");
 
             collision1 = new Collision(new Vector2(490, 450), new Vector2(20, 20), "collisiontest");
-
-            Player1 = new Shape2D(new Vector2(570, 450), new Vector2(20, 20), "player");
         }
 
         public override void OnDraw()
         {
         }
-        
-        float x = 0.1f;
-        float y = 0.1f;
+       
         public override void OnUpdate()
         {
             if (up)
             {
-                Player1.postition.Y -= 5f;
+                player.Y -= 5;
             }
             if (down)
             {
-                Player1.postition.Y += 5f;
+                player.Y += 5;
             }
             if (left)
             {
-                Player1.postition.X -= 5f;
+                player.X -= 5;
             }
             if (right)
             {
-                Player1.postition.X += 5f;
+                player.X += 5;
             }
             if (interact)
             {
@@ -127,6 +122,17 @@ namespace ExpressedEngine
             if (e.KeyCode == Keys.A) { left = false; }
             if (e.KeyCode == Keys.D) { right = false; }
             if (e.KeyCode == Keys.E){ interact = false; }
+        }
+
+        public override void Collision()
+        {
+            foreach(System.Drawing.Rectangle i in rect)
+            {
+                if(i.IntersectsWith(player))
+                {
+                    Console.WriteLine("collision");
+                }
+            }
         }
 
     }

@@ -19,8 +19,14 @@ namespace ExpressedEngine.ExpressedEngine
             this.Scale = scale;
             this.Tag = Tag;
 
+            Rectangle rectangle = new Rectangle(
+              (int)postition.X,
+              (int)postition.Y,
+              (int)Scale.X,
+              (int)scale.Y);
+
             Log.Info($"[NUGGIERECT]({Tag}) - Has Been Registerd");
-            ExpressedEngine.RegisterShape(this);
+            ExpressedEngine.RegisterShape(rectangle);
         }
         public void DestroySelf()
         {
