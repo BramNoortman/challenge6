@@ -20,7 +20,7 @@ namespace ExpressedEngine
         bool down;
         bool interact;
 
-        public DemoGame() : base(new Vector2(615,520),"Expressed Engine Demo"){}
+        public DemoGame() : base(new Vector2(620,523),"Expressed Engine Demo"){}
 
         public override void Onload()
         {
