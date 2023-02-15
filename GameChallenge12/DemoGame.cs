@@ -25,7 +25,10 @@ namespace ExpressedEngine
         public override void Onload()
         {
             BackgroundColour = Color.White;
-
+            Wall = new NuggieShape(new Vector2(600, 0), new Vector2(5, 615), "BoxInside");
+            Wall = new NuggieShape(new Vector2(0,480), new Vector2(800, 5), "BoxInside");
+            Wall = new NuggieShape(new Vector2(-25, 0), new Vector2(800, 5), "BoxInside");
+            Wall = new NuggieShape(new Vector2(0, -1), new Vector2(5, 615), "BoxInside2");
             Wall = new NuggieShape(new Vector2(40, 40), new Vector2(40, 240), "wall1");
             Wall = new NuggieShape(new Vector2(120, 40), new Vector2(160, 40), "Wall2");
             Wall = new NuggieShape(new Vector2(240, 0), new Vector2(40, 40), "Wall3");
@@ -130,9 +133,26 @@ namespace ExpressedEngine
             {
                 if(i.IntersectsWith(player))
                 {
-                    Console.WriteLine("collision");
+                    if (up)
+                    {
+                        player.Y += 5;
+                    }
+                    if (down)
+                    {
+                        player.Y -= 5;
+                    }
+                    if (left)
+                    {
+                        player.X += 5;
+                    }
+                    if (right)
+                    {
+                        player.X -= 5;
+                    }
                 }
             }
+
+
         }
 
     }
