@@ -118,6 +118,7 @@ namespace ExpressedEngine
                         case "A":
                             Console.WriteLine("Correct! The capital of France is Paris.");
                             isCorrect = true;
+                            QA++;
                             break;
                         case "B":
                             Console.WriteLine("Incorrect. The capital of France is not London.");
