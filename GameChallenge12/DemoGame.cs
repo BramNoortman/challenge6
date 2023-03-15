@@ -64,8 +64,16 @@ namespace ExpressedEngine
             Wall = new NuggieShape(new Vector2(280, 320), new Vector2(40, 40), "Wall19");
             Wall = new NuggieShape(new Vector2(200, 360), new Vector2(40, 40), "Wall20");
 
-            if (q1){door = new BigDoorBenny(new Vector2(490, 450), new Vector2(20, 20), "door");}
-            if (q2){ }
+            if (q1){door = new BigDoorBenny(new Vector2(490, 450), new Vector2(20, 20), "door1");}
+            if (q2){door = new BigDoorBenny(new Vector2(490, 450), new Vector2(20, 20), "door2");}
+            if (q3){door = new BigDoorBenny(new Vector2(490, 450), new Vector2(20, 20), "door3");}
+            if (q4){door = new BigDoorBenny(new Vector2(490, 450), new Vector2(20, 20), "door4");} 
+            if (q5){door = new BigDoorBenny(new Vector2(490, 450), new Vector2(20, 20), "door5");}
+            if (q6){door = new BigDoorBenny(new Vector2(490, 450), new Vector2(20, 20), "door6");}
+            if (q7){door = new BigDoorBenny(new Vector2(490, 450), new Vector2(20, 20), "door7");}
+            if (q8){door = new BigDoorBenny(new Vector2(490, 450), new Vector2(20, 20), "door8");}
+            if (q9){door = new BigDoorBenny(new Vector2(490, 450), new Vector2(20, 20), "door9");}
+            if (q10){ door = new BigDoorBenny(new Vector2(490, 450), new Vector2(20, 20), "door10");}
 
             collision1 = new Collision(new Vector2(490, 450), new Vector2(20, 20), "collisiontest");
         }
