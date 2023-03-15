@@ -14,6 +14,20 @@ namespace ExpressedEngine
         NuggieShape Wall;
         Collision collision1;
         BigDoorBenny door;
+
+        bool q1 = true;
+        bool q2 = true;
+        bool q3 = true;
+        bool q4 = true;
+        bool q5 = true;
+        bool q6 = true;
+        bool q7 = true;
+        bool q8 = true;
+        bool q9 = true;
+        bool q10 = true;
+
+        int QA = 0;
+
         bool left;
         bool right;
         bool up;
@@ -50,7 +64,8 @@ namespace ExpressedEngine
             Wall = new NuggieShape(new Vector2(280, 320), new Vector2(40, 40), "Wall19");
             Wall = new NuggieShape(new Vector2(200, 360), new Vector2(40, 40), "Wall20");
 
-            door = new BigDoorBenny(new Vector2(490, 450), new Vector2(20, 20), "door");
+            if (q1){door = new BigDoorBenny(new Vector2(490, 450), new Vector2(20, 20), "door");}
+            if (q2){ }
 
             collision1 = new Collision(new Vector2(490, 450), new Vector2(20, 20), "collisiontest");
         }
@@ -107,6 +122,86 @@ namespace ExpressedEngine
                             break;
                     }
                 }
+            }
+        }
+        public void QuestionAwnsered()
+        {
+            switch(QA){
+                case 1:
+                    q1 = false;
+                    break;
+                case 2:
+                    q1 = false;
+                    q2 = false;
+                    break;
+                case 3:
+                    q1 = false;
+                    q2 = false;
+                    q3 = false;
+                    break;
+                case 4:
+                    q1 = false;
+                    q2 = false;
+                    q3 = false;
+                    q4 = false;
+                    break;
+                case 5:
+                    q1 = false;
+                    q2 = false;
+                    q3 = false;
+                    q4 = false; 
+                    q5 = false;
+                    break;
+                case 6:
+                    q1 = false;
+                    q2 = false;
+                    q3 = false;
+                    q4 = false;
+                    q5 = false;
+                    q6 = false;
+                    break;
+                case 7:
+                    q1 = false;
+                    q2 = false;
+                    q3 = false;
+                    q4 = false;
+                    q5 = false;
+                    q6 = false;
+                    q7 = false;
+                    break;
+                case 8:
+                    q1 = false;
+                    q2 = false;
+                    q3 = false;
+                    q4 = false;
+                    q5 = false;
+                    q6 = false;
+                    q7 = false; 
+                    q8 = false;
+                    break;
+                case 9:
+                    q1 = false;
+                    q2 = false;
+                    q3 = false;
+                    q4 = false;
+                    q5 = false;
+                    q6 = false;
+                    q7 = false;
+                    q8 = false;
+                    q9 = false;
+                    break;
+                case 10:
+                    q1 = false;
+                    q2 = false;
+                    q3 = false;
+                    q4 = false;
+                    q5 = false;
+                    q6 = false;
+                    q7 = false;
+                    q8 = false;
+                    q9 = false;
+                    q10 = false;
+                    break;
             }
         }
         public override void GetKeyDown(KeyEventArgs e)
