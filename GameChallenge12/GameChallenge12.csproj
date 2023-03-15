@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExpressedEngine\BigDoorBenny.cs" />
     <Compile Include="DemoGame.cs" />
     <Compile Include="ExpressedEngine\Collision.cs" />
     <Compile Include="ExpressedEngine\ExpressedEngine.cs">

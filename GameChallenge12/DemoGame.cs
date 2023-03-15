@@ -13,7 +13,7 @@ namespace ExpressedEngine
     {
         NuggieShape Wall;
         Collision collision1;
-
+        BigDoorBenny door;
         bool left;
         bool right;
         bool up;
@@ -50,7 +50,7 @@ namespace ExpressedEngine
             Wall = new NuggieShape(new Vector2(280, 320), new Vector2(40, 40), "Wall19");
             Wall = new NuggieShape(new Vector2(200, 360), new Vector2(40, 40), "Wall20");
 
-            Wall = new NuggieShape(new Vector2(490, 450), new Vector2(20, 20), "door");
+            door = new BigDoorBenny(new Vector2(490, 450), new Vector2(20, 20), "door");
 
             collision1 = new Collision(new Vector2(490, 450), new Vector2(20, 20), "collisiontest");
         }

@@ -162,7 +162,8 @@ namespace ExpressedEngine.ExpressedEngine
 
         private static List<Shape2D> AllShapes = new List<Shape2D>();
         protected static List<NuggieShape> NuggieShapes = new List<NuggieShape>();
-        private static List<Sprite2D> AllSprites = new List<Sprite2D>(); 
+        private static List<BigDoorBenny> BigDoorBennys = new List<BigDoorBenny>();
+        private static List<Sprite2D> AllSprites = new List<Sprite2D>();
         private static List<Collision> Collisions = new List<Collision>();
         protected static List<System.Drawing.Rectangle> rect = new List<System.Drawing.Rectangle>();
 
@@ -219,6 +220,10 @@ namespace ExpressedEngine.ExpressedEngine
         {
             Collisions.Add(collision);
         }
+        public static void RegisterShape(BigDoorBenny BigDoorBenny)
+        {
+            BigDoorBennys.Add(BigDoorBenny);
+        }
         public static void RegisterSprite(Sprite2D Sprite)
         {
             AllSprites.Add(Sprite);
@@ -239,6 +244,10 @@ namespace ExpressedEngine.ExpressedEngine
         public static void UnRegisterShape(Collision collision)
         {
             Collisions.Remove(collision);
+        }
+        public static void UnRegisterShape(BigDoorBenny BigDoorBenny)
+        {
+            BigDoorBennys.Remove(BigDoorBenny);
         }
 
         void GameLoop()
@@ -278,6 +287,10 @@ namespace ExpressedEngine.ExpressedEngine
             foreach (NuggieShape Shape in NuggieShapes)
             {
                 g.FillRectangle(new SolidBrush(Color.Blue), Shape.postition.X, Shape.postition.Y, Shape.Scale.X, Shape.Scale.Y);
+            }
+            foreach(BigDoorBenny BigDoorBenny in BigDoorBennys)
+            {
+                g.FillRectangle(new SolidBrush(Color.Black), BigDoorBenny.postition.X, BigDoorBenny.postition.Y, BigDoorBenny.Scale.X, BigDoorBenny.Scale.Y);
             }
             foreach (Sprite2D Sprite in AllSprites)
             {
